@@ -1,6 +1,5 @@
 package controller;
 
-import com.sun.corba.se.impl.orbutil.ObjectUtility;
 import dao.CustomerDAO;
 import dao.ICustomerDAO;
 import model.CustomerBean;
@@ -37,7 +36,7 @@ public class LoginController extends HttpServlet {
             /* Checking if the user exists, and returning customer if exist, null if doesn't exist*/
             customerBean = customerDAO.loginCheck(customerBean);
             if(customerBean!=null ){
-                out.println("Welcome to Taxi booking System " + customerBean.getFirst_name() + "!");
+                out.println("Welcome to Taxi booking System " + customerBean.getFirstName() + "!");
 
                 HttpSession session = request.getSession(true);
                 session.setAttribute("currentSessionCustomer", customerBean);

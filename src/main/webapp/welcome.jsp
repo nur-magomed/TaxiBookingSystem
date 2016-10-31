@@ -23,8 +23,8 @@
 
 
     <% CustomerBean currentCustomer = (CustomerBean) session.getAttribute("currentSessionCustomer"); %>
-<%  String name=currentCustomer.getFirst_name();
-    String lastname=currentCustomer.getLast_name();
+<%  String name=currentCustomer.getFirstName();
+    String lastname=currentCustomer.getLastName();
     out.println("Welcome  " + name + " " +lastname);
 %>
 

@@ -3,12 +3,15 @@ package controller;
 import dao.CustomerDAO;
 import dao.ICustomerDAO;
 import model.CustomerBean;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -17,6 +20,8 @@ import java.io.PrintWriter;
  */
 @WebServlet(name = "CustomerController",  urlPatterns = {"/CustomerController"})
 public class CustomerController extends HttpServlet {
+
+    private static final Logger log = LoggerFactory.getLogger(CustomerController.class);
 
     private ICustomerDAO customerDAO;
     public CustomerController() {
@@ -27,24 +32,22 @@ public class CustomerController extends HttpServlet {
         PrintWriter out = response.getWriter();
 
         try {
-            CustomerBean customerBean = new CustomerBean();
-            customerBean.setFirst_name(request.getParameter("firstName"));
-            customerBean.setLast_name(request.getParameter("lastName"));
-            customerBean.setPhone_number(request.getParameter("phone_numb"));
-            customerBean.setEmail(request.getParameter("email"));
-            customerBean.setPassword(request.getParameter("user_password"));
-
+            CustomerBean customerBean = new CustomerBean(request);
+            log.info("Customer is created by the request");
             customerDAO.addCustomer(customerBean);
-            out.println("<h1>You are registered</h1>");
+            log.info("Customer is added to the database");
+
+            HttpSession session = request.getSession(true);
+            session.setAttribute("currentSessionCustomer", customerBean);
+            log.info("Session customer is set");
+            log.info("Redirecting to WELCOME PAGE");
             response.sendRedirect("welcome.jsp"); //logged-in page
         }catch (Throwable theException)
         {
-            out.println("<h1> error:" + theException + "</h1>");
+            log.error("Error in CustomerController" + theException);
             out.println(theException);
         }
 
-
     }
-
 
 }

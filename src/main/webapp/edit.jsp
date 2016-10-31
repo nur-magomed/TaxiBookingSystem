@@ -29,15 +29,15 @@
         <table >
             <tr>
                 <td align="right">First name:</td>
-                <td align="left"><input type="text" name="firstName" value="<%=currentCustomer.getFirst_name()%>"/></td>
+                <td align="left"><input type="text" name="firstName" value="<%=currentCustomer.getFirstName()%>"/></td>
             </tr>
             <tr>
                 <td align="right">Last name:</td>
-                <td align="left"><input type="text" name="lastName" value="<%=currentCustomer.getLast_name()%>"/></td>
+                <td align="left"><input type="text" name="lastName" value="<%=currentCustomer.getLastName()%>"/></td>
             </tr>
             <tr>
                 <td align="right">Phone number:</td>
-                <td align="left"> <input type="text" name="phone_numb" value="<%=currentCustomer.getPhone_number()%>"/></td>
+                <td align="left"> <input type="text" name="phone_numb" value="<%=currentCustomer.getPhoneNumber()%>"/></td>
             </tr>
             <tr>
                 <td align="right">Email:</td>
@@ -54,11 +54,11 @@
 
             <tr>
                 <td align="right">Home address:</td>
-                <td align="left"><input type="text" name="address1" value="<%=currentCustomer.getAddress_1()%>"/></td>
+                <td align="left"><input type="text" name="address1" value="<%=currentCustomer.getAddress1()%>"/></td>
             </tr>
             <tr>
                 <td align="right">Job address:</td>
-                <td align="left"><input type="text" name="address2" value="<%=currentCustomer.getAddress_2()%>"/></td>
+                <td align="left"><input type="text" name="address2" value="<%=currentCustomer.getAddress2()%>"/></td>
             </tr>
 
 

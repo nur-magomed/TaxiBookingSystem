@@ -1,5 +1,6 @@
 package model;
 
+import javax.servlet.http.HttpServletRequest;
 import java.sql.Date;
 
 /**
@@ -7,23 +8,35 @@ import java.sql.Date;
  */
 public class CustomerBean {
 
-    private int customer_id;
-    private String first_name;
-    private String last_name;
-    private String phone_number;
+    private int customerId;
+    private String firstName;
+    private String lastName;
+    private String phoneNumber;
     private String email;
     private String password;
-    private Date date_of_birth;
-    private String address_1;
-    private String address_2;
+    private Date dateOfBirth;
+    private String address1;
+    private String address2;
     private int gender;
 
-    public int getCustomer_id() {
-        return customer_id;
+    public CustomerBean(){};
+
+    public CustomerBean (HttpServletRequest request)  {
+        firstName= request.getParameter("firstName");
+        lastName = request.getParameter("lastName");
+        phoneNumber = request.getParameter("phone_numb");
+        email = request.getParameter("email");
+        password = request.getParameter("user_password");
     }
 
-    public void setCustomer_id(int customer_id) {
-        this.customer_id = customer_id;
+
+
+    public int getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
     }
 
 
@@ -31,37 +44,37 @@ public class CustomerBean {
      * Method returns
      * @return
      */
-    public String getFirst_name() {
-        return first_name;
+    public String getFirstName() {
+        return firstName;
     }
 
 
-    public void setFirst_name(String first_name) {
-        this.first_name = first_name;
-    }
-
-    /**
-     * Method returns
-     * @return
-     */
-    public String getLast_name() {
-        return last_name;
-    }
-
-    public void setLast_name(String last_name) {
-        this.last_name = last_name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
     /**
      * Method returns
      * @return
      */
-    public String getPhone_number() {
-        return phone_number;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setPhone_number(String phone_number) {
-        this.phone_number = phone_number;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    /**
+     * Method returns
+     * @return
+     */
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     /**
@@ -88,36 +101,36 @@ public class CustomerBean {
      * Method returns
      * @return
      */
-    public Date getDate_of_birth() {
-        return date_of_birth;
+    public Date getDateOfBirth() {
+        return dateOfBirth;
     }
 
-    public void setDate_of_birth(Date date_of_birth) {
-        this.date_of_birth = date_of_birth;
-    }
-
-    /**
-     * Method returns
-     * @return
-     */
-    public String getAddress_1() {
-        return address_1;
-    }
-
-    public void setAddress_1(String address_1) {
-        this.address_1 = address_1;
+    public void setDateOfBirth(Date dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
     }
 
     /**
      * Method returns
      * @return
      */
-    public String getAddress_2() {
-        return address_2;
+    public String getAddress1() {
+        return address1;
     }
 
-    public void setAddress_2(String address_2) {
-        this.address_2 = address_2;
+    public void setAddress1(String address1) {
+        this.address1 = address1;
+    }
+
+    /**
+     * Method returns
+     * @return
+     */
+    public String getAddress2() {
+        return address2;
+    }
+
+    public void setAddress2(String address2) {
+        this.address2 = address2;
     }
 
     /**

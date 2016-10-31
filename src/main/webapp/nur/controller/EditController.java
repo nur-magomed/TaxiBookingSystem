@@ -27,16 +27,16 @@ public class EditController extends HttpServlet {
 
         try {
             CustomerBean currentCustomer = new CustomerBean();
-            currentCustomer.setCustomer_id(((CustomerBean) request.getSession().getAttribute("currentSessionCustomer")).getCustomer_id());
+            currentCustomer.setCustomerId(((CustomerBean) request.getSession().getAttribute("currentSessionCustomer")).getCustomerId());
 
-            currentCustomer.setFirst_name(request.getParameter("firstName"));
-            currentCustomer.setLast_name(request.getParameter("lastName"));
-            currentCustomer.setPhone_number(request.getParameter("phone_numb"));
+            currentCustomer.setFirstName(request.getParameter("firstName"));
+            currentCustomer.setLastName(request.getParameter("lastName"));
+            currentCustomer.setPhoneNumber(request.getParameter("phone_numb"));
             currentCustomer.setEmail(request.getParameter("email"));
             currentCustomer.setPassword(request.getParameter("user_password"));
             currentCustomer.setGender(Integer.parseInt(request.getParameter("gender")));
-            currentCustomer.setAddress_1(request.getParameter("address1"));
-            currentCustomer.setAddress_2(request.getParameter("address2"));
+            currentCustomer.setAddress1(request.getParameter("address1"));
+            currentCustomer.setAddress2(request.getParameter("address2"));
 
             customerDAO.updateCustomer(currentCustomer);
             out.println("<h1>You are updated</h1>");
