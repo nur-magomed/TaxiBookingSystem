@@ -22,7 +22,7 @@
 
 <% CustomerBean currentCustomer = (CustomerBean) session.getAttribute("currentSessionCustomer"); %>
 
-<form action="/EditController" method="post">
+<form action="EditController" method="post">
 
     <fieldset style="width: 300px">
         <legend>Registration:</legend>

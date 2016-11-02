@@ -21,9 +21,6 @@
 </head>
 <body>
 
-
-
-
 <h1> Welcome to taxi booking system</h1>
 
 <br><form action="LoginController" method="post">

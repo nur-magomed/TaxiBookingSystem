@@ -30,7 +30,6 @@ public class LogoutController extends HttpServlet {
 
 
 
-        customerDAO.closeConnection();
         log.warn("The connection with DB is closed");
         request.getSession().invalidate();
         log.warn("The session is has closed");

@@ -22,9 +22,10 @@
 <body>
 
 <div style="text-align: center;">
+
     <h2> Registration </h2>
 
-    <form action="/CustomerController" method="post">
+    <form action="CustomerController" method="post">
 
         <fieldset style="width: 300px">
             <legend>Registration:</legend>
@@ -59,6 +60,6 @@
     </form>
 
 
-</div>>
+</div>
 </body>
 </html>

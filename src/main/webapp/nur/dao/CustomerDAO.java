@@ -17,11 +17,17 @@ public class CustomerDAO implements ICustomerDAO {
     private static final Logger log = LoggerFactory.getLogger(CustomerDAO.class);
     private Connection conn;
 
+    /**
+     * Initialising connection
+     */
     public CustomerDAO() {
         conn = DBConn.getConnection();
         log.info("Made connection to DB");
     }
 
+    /**
+     * This method closes the connection
+     */
     @Override
     public void closeConnection() {
         try {
@@ -36,11 +42,15 @@ public class CustomerDAO implements ICustomerDAO {
         }
     }
 
+    /**
+     * Adds customer to database
+     * @param customerBean
+     */
     @Override
     public void addCustomer(CustomerBean customerBean) {
         try{
-            String query = "insert into customer_tbl(first_name, last_name, phone_number, email, password) " +
-                    "values(?, ?, ?, ?, ?)";
+            String query = "INSERT INTO customer_tbl(first_name, last_name, phone_number, email, password) " +
+                    "VALUES(?, ?, ?, ?, ?)";
             PreparedStatement preparedStatement = conn.prepareStatement( query );
             preparedStatement.setString( 1, customerBean.getFirstName() );
             preparedStatement.setString( 2, customerBean.getLastName() );
@@ -54,9 +64,17 @@ public class CustomerDAO implements ICustomerDAO {
         } catch (SQLException e) {
             log.error("sql error, adding customer: " + e);
             e.printStackTrace();
+        } catch (Exception ee){
+
         }
     }
 
+
+    /**
+     * Checking if the user is registered, and returns customer if registered
+     * @param customerBean
+     * @return
+     */
     @Override
     public CustomerBean loginCheck(CustomerBean customerBean) {
         try{
@@ -95,6 +113,10 @@ public class CustomerDAO implements ICustomerDAO {
     }
 
 
+    /**
+     * Updates edited fields of customer
+     * @param customerBean
+     */
     @Override
     public void updateCustomer(CustomerBean customerBean) {
         try{
